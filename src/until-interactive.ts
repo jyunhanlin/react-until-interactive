@@ -1,21 +1,39 @@
 import type { Options } from './types';
 
-export const untilInteractive = (options: Options) => {
-  const { events = ['mousemove', 'click', 'scroll'], idle = false, onInteractive } = options;
+const cached = new Map();
 
-  const check = () => {
+export const untilInteractive = (options: Options) =>
+  new Promise((resolve, reject) => {
+    const { events = ['mousemove', 'click', 'scroll'], idle = false, cache = false, onInteractive } = options;
+
+    const trigger = () => {
+      events.forEach((event) => {
+        document.removeEventListener(event, trigger);
+      });
+
+      if (idle && requestIdleCallback) {
+        requestIdleCallback(handleInteractive);
+      } else {
+        handleInteractive();
+      }
+    };
+
+    const handleInteractive = async () => {
+      if (cache && cached.has(onInteractive)) {
+        resolve(cached.get(onInteractive));
+        return;
+      }
+
+      try {
+        const result = await onInteractive();
+        if (cache) cached.set(onInteractive, result);
+        resolve(result);
+      } catch (error) {
+        reject(error);
+      }
+    };
+
     events.forEach((event) => {
-      document.removeEventListener(event, check);
+      document.addEventListener(event, trigger);
     });
-
-    if (idle) {
-      requestIdleCallback(onInteractive);
-    } else {
-      onInteractive();
-    }
-  };
-
-  events.forEach((event) => {
-    document.addEventListener(event, check);
   });
-};
