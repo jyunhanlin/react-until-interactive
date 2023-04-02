@@ -3,12 +3,12 @@ import type { Options } from './types';
 export const untilInteractive = (options: Options) => {
   const { events = ['mousemove', 'click', 'scroll'], idle = false, onInteractive } = options;
 
-  const check = () => {
+  const handleInteractive = () => {
     events.forEach((event) => {
-      document.removeEventListener(event, check);
+      document.removeEventListener(event, handleInteractive);
     });
 
-    if (idle) {
+    if (idle && requestIdleCallback) {
       requestIdleCallback(onInteractive);
     } else {
       onInteractive();
@@ -16,6 +16,6 @@ export const untilInteractive = (options: Options) => {
   };
 
   events.forEach((event) => {
-    document.addEventListener(event, check);
+    document.addEventListener(event, handleInteractive);
   });
 };
