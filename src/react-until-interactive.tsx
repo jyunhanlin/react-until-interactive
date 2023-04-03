@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type { ComponentOptions } from './types';
-import { useUntilInteractive } from './use-unitl-interactive';
+import { useUntilInteractive } from './use-until-interactive';
 
 export const UntilInteractive = ({ untilInteractiveOptions, children, otherProps }: ComponentOptions) => {
   const { isLoading } = useUntilInteractive(untilInteractiveOptions);

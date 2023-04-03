@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
-import { useUntilInteractive } from '../use-unitl-interactive';
+import { useUntilInteractive } from '../use-until-interactive';
 
 describe('useUntilInteractive', () => {
   it('should call untilInteraction', () => {
