@@ -4,14 +4,16 @@ import type { HookOptions } from './types';
 import { untilInteractive } from './until-interactive';
 
 export const useUntilInteractive = (options: HookOptions) => {
-  const [state, setState] = useState<any>(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState<any>(null);
   const willMount = useRef(true);
 
   const handleInteractive = useCallback(async () => {
     try {
+      setIsLoading(true);
       const result = await untilInteractive(options);
-
-      setState(result);
+      setIsLoading(false);
+      setData(result);
     } catch (e: any) {
       throw new Error('untilInteraction error', e);
     }
@@ -21,5 +23,5 @@ export const useUntilInteractive = (options: HookOptions) => {
 
   willMount.current = false;
 
-  return state;
+  return { isLoading, data };
 };

@@ -4,15 +4,15 @@ import type { ComponentOptions } from './types';
 import { useUntilInteractive } from './use-unitl-interactive';
 
 export const UntilInteractive = ({ untilInteractiveOptions, children, otherProps }: ComponentOptions) => {
-  const state = useUntilInteractive(untilInteractiveOptions);
+  const { isLoading } = useUntilInteractive(untilInteractiveOptions);
 
   if (children && React.isValidElement(children)) {
     const Component = React.cloneElement(children, { ...otherProps });
 
-    return state ? Component : null;
+    return isLoading ? null : Component;
   }
 
-  if (children) return state ? <>{children}</> : null;
+  if (children) return isLoading ? null : <>{children}</>;
 
   return null;
 };
