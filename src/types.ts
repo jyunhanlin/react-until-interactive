@@ -3,7 +3,7 @@ export type Events = Array<keyof HTMLElementEventMap>;
 export interface Options {
   events?: Events;
   idle?: boolean;
-  onInteractive: () => void;
+  onInteractive: () => any;
 }
 
 export interface HookOptions extends Options {
