@@ -1,10 +1,12 @@
 import { useState, useRef, useCallback } from 'react';
 
-import type { HookOptions } from './types';
+import type { HookOptions, HookResult } from './types';
 import { untilInteractive } from './until-interactive';
 
-export const useUntilInteractive = (options: HookOptions) => {
+export const useUntilInteractive = (options: HookOptions): HookResult => {
+  const { onError } = options;
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [data, setData] = useState<any>(null);
   const willMount = useRef(true);
 
@@ -15,7 +17,8 @@ export const useUntilInteractive = (options: HookOptions) => {
       setIsLoading(false);
       setData(result);
     } catch (e: any) {
-      throw new Error('untilInteraction error', e);
+      setIsError(true);
+      onError?.(e);
     }
   }, []);
 
@@ -23,5 +26,5 @@ export const useUntilInteractive = (options: HookOptions) => {
 
   willMount.current = false;
 
-  return { isLoading, data };
+  return { isLoading, isError, data };
 };

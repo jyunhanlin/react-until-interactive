@@ -4,15 +4,15 @@ import type { ComponentOptions } from './types';
 import { useUntilInteractive } from './use-until-interactive';
 
 export const UntilInteractive = ({ untilInteractiveOptions, children, otherProps }: ComponentOptions) => {
-  const { isLoading } = useUntilInteractive(untilInteractiveOptions);
+  const { isLoading, isError } = useUntilInteractive(untilInteractiveOptions);
 
   if (children && React.isValidElement(children)) {
     const Component = React.cloneElement(children, { ...otherProps });
 
-    return isLoading ? null : Component;
+    return isLoading || isError ? null : Component;
   }
 
-  if (children) return isLoading ? null : <>{children}</>;
+  if (children) return isLoading || isError ? null : <>{children}</>;
 
   return null;
 };
