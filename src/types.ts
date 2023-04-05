@@ -13,7 +13,7 @@ export interface HookOptions extends Options {
 
 export interface ComponentOptions {
   untilInteractiveOptions: HookOptions;
-  children?: React.ReactNode;
+  children?: React.ReactNode | ((args: { isLoading: boolean; isError: boolean }) => React.ReactNode);
   // All other props
   [x: string]: any;
 }

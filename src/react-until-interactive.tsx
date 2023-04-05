@@ -12,6 +12,10 @@ export const UntilInteractive = ({ untilInteractiveOptions, children, otherProps
     return isLoading || isError ? null : Component;
   }
 
+  if (children && typeof children === 'function') {
+    return <>{children({ isLoading, isError })}</>;
+  }
+
   if (children) return isLoading || isError ? null : <>{children}</>;
 
   return null;
