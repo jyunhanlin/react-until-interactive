@@ -12,6 +12,7 @@
   "workspaces": [
     "example"
   ],
+  "sideEffects": false,
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -24,7 +25,7 @@
   ],
   "scripts": {
     "dev": "npm run dev -w example",
-    "build": "tsup src/index.ts --format esm,cjs --target es6 --dts --minify --treeshake",
+    "build": "tsup",
     "test:dev": "jest --watch --config jest.config.cjs",
     "test": "jest --silent --runInBand --config jest.config.cjs",
     "type-check": "tsc --pretty --noEmit",
