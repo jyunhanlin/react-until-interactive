@@ -1,8 +1,10 @@
 import type { Options } from './types';
 
+const cached = new Map();
+
 export const untilInteractive = (options: Options) =>
   new Promise((resolve, reject) => {
-    const { events = ['mousemove', 'click', 'scroll'], idle = false, onInteractive } = options;
+    const { events = ['mousemove', 'click', 'scroll'], idle = false, cache = false, onInteractive } = options;
 
     const trigger = () => {
       events.forEach((event) => {
@@ -17,9 +19,14 @@ export const untilInteractive = (options: Options) =>
     };
 
     const handleInteractive = async () => {
+      if (cache && cached.has(onInteractive)) {
+        resolve(cached.get(onInteractive));
+        return;
+      }
+
       try {
         const result = await onInteractive();
-
+        if (cache) cached.set(onInteractive, result);
         resolve(result);
       } catch (error) {
         reject(error);
