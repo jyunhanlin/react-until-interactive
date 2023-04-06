@@ -2,8 +2,12 @@ import type { Options } from './types';
 
 const cached = new Map();
 
-export const untilInteractive = (options: Options) =>
-  new Promise((resolve, reject) => {
+const isServer = typeof window === 'undefined';
+
+export const untilInteractive = async (options: Options) => {
+  if (isServer) return;
+
+  return new Promise((resolve, reject) => {
     const { events = ['mousemove', 'click', 'scroll'], idle = false, cache = false, onInteractive } = options;
 
     const trigger = () => {
@@ -37,3 +41,4 @@ export const untilInteractive = (options: Options) =>
       document.addEventListener(event, trigger);
     });
   });
+};
