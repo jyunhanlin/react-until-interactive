@@ -7,15 +7,18 @@ untilInteractive({
 });
 
 function App() {
-  const { isLoading } = useUntilInteractive({
-    onInteractive: () =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          console.log('useUntilInteractive');
-          resolve('');
-        }, 1000);
-      }),
-  });
+  const { isLoading } = useUntilInteractive(
+    {
+      onInteractive: () =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            console.log('useUntilInteractive');
+            resolve('');
+          }, 1000);
+        }),
+    },
+    [],
+  );
 
   return (
     <>

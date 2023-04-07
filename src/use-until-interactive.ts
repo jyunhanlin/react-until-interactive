@@ -3,7 +3,7 @@ import { useState, useRef, useCallback } from 'react';
 import type { HookOptions, HookResult } from './types';
 import { untilInteractive } from './until-interactive';
 
-export const useUntilInteractive = (options: HookOptions): HookResult => {
+export const useUntilInteractive = (options: HookOptions, deps: React.DependencyList): HookResult => {
   const { onError } = options;
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -20,7 +20,7 @@ export const useUntilInteractive = (options: HookOptions): HookResult => {
       setIsError(true);
       onError?.(e);
     }
-  }, []);
+  }, deps);
 
   if (willMount.current) handleInteractive();
 
