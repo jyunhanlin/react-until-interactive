@@ -1,3 +1,10 @@
+# [1.0.0-rc.3](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2023-04-07)
+
+
+### Features
+
+* add deps for hook ([8244a48](https://github.com/jyunhanlin/react-until-interactive/commit/8244a481cefa0bf32e55720f9beb55bba7f2ce61))
+
 # [1.0.0-rc.2](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2023-04-06)
 
 
