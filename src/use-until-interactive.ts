@@ -12,7 +12,6 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
 
   const handleInteractive = useCallback(async () => {
     try {
-      setIsLoading(true);
       const result = await untilInteractive(options);
       setIsLoading(false);
       setData(result);
