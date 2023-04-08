@@ -1,3 +1,10 @@
+# [1.0.0-rc.4](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2023-04-08)
+
+
+### Features
+
+* error handling ([3aa88e3](https://github.com/jyunhanlin/react-until-interactive/commit/3aa88e3c1e1d6f065f2d786a5e03e59ef9cccdc8))
+
 # [1.0.0-rc.3](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2023-04-07)
 
 
