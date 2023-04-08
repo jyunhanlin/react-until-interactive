@@ -4,6 +4,7 @@ export interface Options {
   events?: Events;
   idle?: boolean;
   cache?: boolean;
+  threshold?: number;
   onInteractive: () => any;
 }
 

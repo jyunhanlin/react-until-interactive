@@ -8,11 +8,20 @@ export const untilInteractive = async (options: Options) => {
   if (isServer) return;
 
   return new Promise((resolve, reject) => {
-    const { events = ['mousemove', 'click', 'scroll'], idle = false, cache = false, onInteractive } = options;
+    const {
+      events = ['mousemove', 'click', 'scroll'],
+      idle = false,
+      cache = false,
+      threshold,
+      onInteractive,
+    } = options;
+    let thresholdTimer: ReturnType<typeof setTimeout>;
 
     if (!onInteractive) reject('please provide the onInteractive callback');
 
     const trigger = () => {
+      if (thresholdTimer) clearTimeout(thresholdTimer);
+
       events.forEach((event) => {
         document.removeEventListener(event, trigger);
       });
@@ -42,5 +51,9 @@ export const untilInteractive = async (options: Options) => {
     events.forEach((event) => {
       document.addEventListener(event, trigger);
     });
+
+    if (threshold) {
+      thresholdTimer = setTimeout(trigger, threshold);
+    }
   });
 };
