@@ -1,3 +1,10 @@
+# [1.0.0-rc.6](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2023-04-08)
+
+
+### Features
+
+* add threshold option ([c1b30c8](https://github.com/jyunhanlin/react-until-interactive/commit/c1b30c8dabb6fce8ddc9d7923ccdf61aa53d4446))
+
 # [1.0.0-rc.5](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2023-04-08)
 
 
