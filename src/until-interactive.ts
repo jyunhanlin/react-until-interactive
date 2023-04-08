@@ -10,6 +10,8 @@ export const untilInteractive = async (options: Options) => {
   return new Promise((resolve, reject) => {
     const { events = ['mousemove', 'click', 'scroll'], idle = false, cache = false, onInteractive } = options;
 
+    if (!onInteractive) reject('please provide the onInteractive callback');
+
     const trigger = () => {
       events.forEach((event) => {
         document.removeEventListener(event, trigger);
