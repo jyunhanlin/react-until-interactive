@@ -1,3 +1,10 @@
+# [1.0.0-rc.5](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2023-04-08)
+
+
+### Bug Fixes
+
+* remove unused setState ([37fc327](https://github.com/jyunhanlin/react-until-interactive/commit/37fc327d2e2e0ac2dedbd25442637207e085038a))
+
 # [1.0.0-rc.4](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2023-04-08)
 
 
