@@ -26,9 +26,7 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
   willMount.current = false;
 
   useLayoutEffect(() => {
-    if (!willMount.current && !isLoading) {
-      handleInteractive();
-    }
+    if (!willMount.current && !isLoading) handleInteractive();
   }, deps);
 
   return { isLoading, isError, data };
