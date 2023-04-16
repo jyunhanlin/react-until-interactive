@@ -1,3 +1,10 @@
+# [1.0.0-rc.7](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2023-04-16)
+
+
+### Features
+
+* useLayoutEffect ([5a05a14](https://github.com/jyunhanlin/react-until-interactive/commit/5a05a1490b0dab13a3b81f48ceb0dfce2bd69ed1))
+
 # [1.0.0-rc.6](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2023-04-08)
 
 
