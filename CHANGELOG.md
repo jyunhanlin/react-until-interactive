@@ -1,3 +1,10 @@
+# [1.0.0-rc.8](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2023-04-22)
+
+
+### Bug Fixes
+
+* once option ([cd9bfde](https://github.com/jyunhanlin/react-until-interactive/commit/cd9bfdedfd8303bf707ea7c2a77993754c137631))
+
 # [1.0.0-rc.7](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2023-04-16)
 
 
