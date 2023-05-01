@@ -1,3 +1,10 @@
+# [1.0.0-rc.9](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2023-05-01)
+
+
+### Features
+
+* add stale while revalidate for hook ([ff719ac](https://github.com/jyunhanlin/react-until-interactive/commit/ff719acb3ababa7bd62da1107fd4d319dd3b2db1))
+
 # [1.0.0-rc.8](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2023-04-22)
 
 
