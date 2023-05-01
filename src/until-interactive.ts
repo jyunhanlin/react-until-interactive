@@ -14,6 +14,7 @@ export const untilInteractive = async (options: Options) => {
       cache = false,
       threshold,
       onInteractive,
+      onChange,
     } = options;
     let thresholdTimer: ReturnType<typeof setTimeout>;
 
@@ -26,8 +27,9 @@ export const untilInteractive = async (options: Options) => {
         document.removeEventListener(event, trigger);
       });
 
-      if (idle && requestIdleCallback) {
-        requestIdleCallback(handleInteractive);
+      if (idle) {
+        if (requestIdleCallback) requestIdleCallback(handleInteractive);
+        else setTimeout(handleInteractive);
       } else {
         handleInteractive();
       }
@@ -35,7 +37,16 @@ export const untilInteractive = async (options: Options) => {
 
     const handleInteractive = async () => {
       if (cache && cached.has(onInteractive)) {
-        resolve(cached.get(onInteractive));
+        const cachedResult = cached.get(onInteractive);
+        resolve(cachedResult);
+
+        if (onChange) {
+          const result = await onInteractive();
+          if (result !== cachedResult) {
+            onChange(result);
+            cached.set(onInteractive, result);
+          }
+        }
         return;
       }
 

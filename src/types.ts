@@ -6,10 +6,12 @@ export interface Options {
   cache?: boolean;
   threshold?: number;
   onInteractive: () => any;
+  onChange?: (result: any) => any;
 }
 
 export interface HookOptions extends Options {
   once?: boolean;
+  staleWhileRevalidate?: boolean;
   onError?: (error: Error) => never;
 }
 
