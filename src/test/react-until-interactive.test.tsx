@@ -4,6 +4,6 @@ import { UntilInteractive } from '../react-until-interactive';
 
 describe('UntilInteractive component', () => {
   it('should render without crashing', () => {
-    render(<UntilInteractive untilInteractiveOptions={{ onInteractive: () => void 0 }} />);
+    render(<UntilInteractive untilInteractiveOptions={{ interactiveFn: () => void 0 }} />);
   });
 });
