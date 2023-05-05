@@ -1,3 +1,10 @@
+# [1.0.0-rc.11](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2023-05-05)
+
+
+### Bug Fixes
+
+* this in interactive ([aee18ec](https://github.com/jyunhanlin/react-until-interactive/commit/aee18ec3b2c42b0f8f2cfb9b4477607558be980f))
+
 # [1.0.0-rc.10](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2023-05-05)
 
 
