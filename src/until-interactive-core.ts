@@ -45,10 +45,10 @@ export class UntilInteractiveCore {
     }
   };
 
-  private async interactive() {
+  private interactive = async () => {
     const result = await this._interactive();
-    this.onInteractive(result);
-  }
+    if (result !== undefined) this.onInteractive(result);
+  };
 
   private async _interactive() {
     const { cache, interactiveFn, onError } = this.options;
