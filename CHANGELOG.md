@@ -1,3 +1,10 @@
+# [1.0.0-rc.14](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2023-05-05)
+
+
+### Bug Fixes
+
+* the options of hook ([eaa2d84](https://github.com/jyunhanlin/react-until-interactive/commit/eaa2d84c64881eee5e18dca17174b44d99e61fee))
+
 # [1.0.0-rc.13](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2023-05-05)
 
 
