@@ -2,7 +2,7 @@ import { UntilInteractiveCore, useUntilInteractive, UntilInteractive } from '../
 
 new UntilInteractiveCore({
   interactiveFn: () => {
-    console.log('untilInteractive');
+    console.log('UntilInteractiveCore');
   },
 });
 
