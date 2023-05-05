@@ -29,7 +29,7 @@ export class UntilInteractiveCore {
     }
   }
 
-  private triggerInteractive() {
+  private triggerInteractive = () => {
     const { events, idle } = this.options;
     if (this.thresholdTimer) clearTimeout(this.thresholdTimer);
 
@@ -43,7 +43,7 @@ export class UntilInteractiveCore {
     } else {
       this.interactive();
     }
-  }
+  };
 
   private async interactive() {
     const { cache, interactiveFn } = this.options;
