@@ -12,7 +12,6 @@ export interface Options {
 
 export interface HookOptions extends Options {
   once?: boolean;
-  staleWhileRevalidate?: boolean;
 }
 
 export interface ComponentOptions {

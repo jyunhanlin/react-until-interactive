@@ -4,25 +4,22 @@ import type { HookOptions, HookResult } from './types';
 import { UntilInteractiveCore } from './until-interactive-core';
 
 export const useUntilInteractive = (options: HookOptions, deps: React.DependencyList): HookResult => {
-  const { once = true, staleWhileRevalidate = false, onError } = options;
+  const { once = true, onError } = options;
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<any>(null);
 
   const resolvedOptions = useMemo(() => {
     const resolvedOptions = options;
-    if (staleWhileRevalidate)
-      resolvedOptions.onInteractive = (result) => {
-        setData(result);
-        setIsLoading(false);
-      };
+    resolvedOptions.onInteractive = (result) => {
+      setData(result);
+      setIsLoading(false);
+    };
 
-    if (onError) {
-      resolvedOptions.onError = (error) => {
-        onError(error);
-        setIsError(true);
-      };
-    }
+    resolvedOptions.onError = (error) => {
+      onError?.(error);
+      setIsError(true);
+    };
     return resolvedOptions;
   }, []);
 
