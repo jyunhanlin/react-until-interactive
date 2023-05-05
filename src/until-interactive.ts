@@ -46,8 +46,6 @@ export class UntilInteractiveCore {
   };
 
   private async interactive() {
-    const { cache, interactiveFn, onError } = this.options;
-
     const result = await this._interactive();
     this.onInteractive(result);
   }
@@ -59,7 +57,7 @@ export class UntilInteractiveCore {
       const result = await interactiveFn();
       if (cache) cached.set(interactiveFn, result);
       return result;
-    } catch (error) {
+    } catch (error: any) {
       onError?.(error);
     }
   }
