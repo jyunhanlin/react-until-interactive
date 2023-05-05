@@ -1,3 +1,11 @@
+# [1.0.0-rc.13](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2023-05-05)
+
+
+### Bug Fixes
+
+* update deps of options ([e536c7a](https://github.com/jyunhanlin/react-until-interactive/commit/e536c7a01b81f867ea7367d0e4295854758b5860))
+* wrong result ([d8b38ef](https://github.com/jyunhanlin/react-until-interactive/commit/d8b38ef47ba361fe44fec4d386a2c921c8b0eed5))
+
 # [1.0.0-rc.12](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2023-05-05)
 
 
