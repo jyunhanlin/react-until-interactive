@@ -1,7 +1,7 @@
 import { useMemo, useState, useRef, useLayoutEffect } from 'react';
 
 import type { HookOptions, HookResult } from './types';
-import { UntilInteractiveCore } from './until-interactive';
+import { UntilInteractiveCore } from './until-interactive-core';
 
 export const useUntilInteractive = (options: HookOptions, deps: React.DependencyList): HookResult => {
   const { once = true, staleWhileRevalidate = false, onError } = options;
