@@ -75,7 +75,7 @@ export class UntilInteractiveCore {
 
       const result = await this._interactive();
 
-      if (result !== cachedResult) this.onInteractive(cachedResult);
+      if (result !== cachedResult) this.onInteractive(result);
     }
   }
 }
