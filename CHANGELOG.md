@@ -1,3 +1,10 @@
+# [1.0.0-rc.10](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2023-05-05)
+
+
+### Bug Fixes
+
+* bind this for trigger ([959667d](https://github.com/jyunhanlin/react-until-interactive/commit/959667d3fb975b0a6976234525a37e619c9a3248))
+
 # [1.0.0-rc.9](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2023-05-01)
 
 
