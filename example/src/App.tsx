@@ -1,7 +1,7 @@
-import { untilInteractive, useUntilInteractive, UntilInteractive } from '../../src';
+import { UntilInteractiveCore, useUntilInteractive, UntilInteractive } from '../../src';
 
-untilInteractive({
-  onInteractive: () => {
+new UntilInteractiveCore({
+  interactiveFn: () => {
     console.log('untilInteractive');
   },
 });
@@ -9,7 +9,7 @@ untilInteractive({
 function App() {
   const { isLoading } = useUntilInteractive(
     {
-      onInteractive: () =>
+      interactiveFn: () =>
         new Promise((resolve) => {
           setTimeout(() => {
             console.log('useUntilInteractive');
@@ -25,7 +25,7 @@ function App() {
       <div>{isLoading ? 'wait for useUntilInteractive' : 'useUntilInteractive done'}</div>
       <UntilInteractive
         untilInteractiveOptions={{
-          onInteractive: () =>
+          interactiveFn: () =>
             new Promise((resolve) => {
               setTimeout(() => {
                 console.log('UntilInteractive');

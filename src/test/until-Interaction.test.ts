@@ -1,7 +1,7 @@
-import { untilInteractive } from '../until-interactive';
+import { UntilInteractiveCore } from '../until-interactive';
 
-describe('untilInteractive function', () => {
+describe('UntilInteractiveCore function', () => {
   it('should return a function', () => {
-    expect(typeof untilInteractive).toBe('function');
+    expect(typeof UntilInteractiveCore).toBe('function');
   });
 });

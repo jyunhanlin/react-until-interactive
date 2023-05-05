@@ -2,69 +2,73 @@ import type { Options } from './types';
 
 const cached = new Map();
 
-const isServer = typeof window === 'undefined';
+export class UntilInteractiveCore {
+  private options: Options;
+  private thresholdTimer: ReturnType<typeof setTimeout> | undefined;
 
-export const untilInteractive = async (options: Options) => {
-  if (isServer) return;
-
-  return new Promise((resolve, reject) => {
-    const {
-      events = ['mousemove', 'click', 'scroll'],
-      idle = false,
-      cache = false,
-      threshold,
-      onInteractive,
-      onChange,
-    } = options;
-    let thresholdTimer: ReturnType<typeof setTimeout>;
-
-    if (!onInteractive) reject('please provide the onInteractive callback');
-
-    const trigger = () => {
-      if (thresholdTimer) clearTimeout(thresholdTimer);
-
-      events.forEach((event) => {
-        document.removeEventListener(event, trigger);
-      });
-
-      if (idle) {
-        if (requestIdleCallback) requestIdleCallback(handleInteractive);
-        else setTimeout(handleInteractive);
-      } else {
-        handleInteractive();
-      }
+  constructor(options: Options) {
+    this.options = {
+      events: options.events || ['mousemove', 'click', 'scroll'],
+      idle: options.idle || false,
+      cache: options.cache || false,
+      threshold: options.threshold,
+      interactiveFn: options.interactiveFn,
+      onInteractive: options.onInteractive,
     };
+    this.setup();
+  }
 
-    const handleInteractive = async () => {
-      if (cache && cached.has(onInteractive)) {
-        const cachedResult = cached.get(onInteractive);
-        resolve(cachedResult);
-
-        if (onChange) {
-          const result = await onInteractive();
-          if (result !== cachedResult) {
-            onChange(result);
-            cached.set(onInteractive, result);
-          }
-        }
-        return;
-      }
-
-      try {
-        const result = await onInteractive();
-        if (cache) cached.set(onInteractive, result);
-        resolve(result);
-      } catch (error) {
-        reject(error);
-      }
-    };
-
-    events.forEach((event) => {
-      document.addEventListener(event, trigger);
+  private setup() {
+    const { events, threshold } = this.options;
+    events?.forEach((event) => {
+      document.addEventListener(event, this.triggerInteractive);
     });
 
     if (threshold) {
-      thresholdTimer = setTimeout(trigger, threshold);
+      this.thresholdTimer = setTimeout(this.triggerInteractive, threshold);
     }
-  });
-};
+  }
+
+  private triggerInteractive() {
+    const { events, idle } = this.options;
+    if (this.thresholdTimer) clearTimeout(this.thresholdTimer);
+
+    events?.forEach((event) => {
+      document.removeEventListener(event, this.triggerInteractive);
+    });
+
+    if (idle) {
+      if (requestIdleCallback) requestIdleCallback(this.interactive);
+      else setTimeout(this.interactive);
+    } else {
+      this.interactive();
+    }
+  }
+
+  private async interactive() {
+    const { cache, interactiveFn } = this.options;
+    const result = await interactiveFn();
+    this.onInteractive(result);
+    if (cache) cached.set(interactiveFn, result);
+  }
+
+  private onInteractive(result: any) {
+    const { onInteractive } = this.options;
+    onInteractive?.(result);
+  }
+
+  async updateInteractive() {
+    const { cache, interactiveFn } = this.options;
+    if (cache && cached.has(interactiveFn)) {
+      const cachedResult = cached.get(interactiveFn);
+      this.onInteractive(cachedResult);
+
+      const result = await interactiveFn();
+
+      if (result !== cachedResult) {
+        this.onInteractive(cachedResult);
+        cached.set(interactiveFn, result);
+      }
+    }
+  }
+}

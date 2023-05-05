@@ -5,14 +5,14 @@ export interface Options {
   idle?: boolean;
   cache?: boolean;
   threshold?: number;
-  onInteractive: () => any;
-  onChange?: (result: any) => any;
+  interactiveFn: () => any;
+  onInteractive?: (result: any) => any;
+  onError?: (error: Error) => any;
 }
 
 export interface HookOptions extends Options {
   once?: boolean;
   staleWhileRevalidate?: boolean;
-  onError?: (error: Error) => never;
 }
 
 export interface ComponentOptions {
