@@ -24,7 +24,7 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
       };
     }
     return resolvedOptions;
-  }, [options]);
+  }, []);
 
   const untilInteractive = useRef(new UntilInteractiveCore(resolvedOptions));
 
