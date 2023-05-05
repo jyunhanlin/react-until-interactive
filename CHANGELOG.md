@@ -1,3 +1,10 @@
+# [1.0.0-rc.12](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2023-05-05)
+
+
+### Bug Fixes
+
+* naming changed ([bbe8860](https://github.com/jyunhanlin/react-until-interactive/commit/bbe88609288d863db48c9316d0350bcd5d449912))
+
 # [1.0.0-rc.11](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2023-05-05)
 
 
