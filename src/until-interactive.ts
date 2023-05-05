@@ -9,7 +9,7 @@ export class UntilInteractiveCore {
   constructor(options: Options) {
     this.options = {
       events: options.events || ['mousemove', 'click', 'scroll'],
-      idle: options.idle || false,
+      idle: options.idle || true,
       cache: options.cache || false,
       threshold: options.threshold,
       interactiveFn: options.interactiveFn,
@@ -46,10 +46,22 @@ export class UntilInteractiveCore {
   };
 
   private async interactive() {
-    const { cache, interactiveFn } = this.options;
-    const result = await interactiveFn();
+    const { cache, interactiveFn, onError } = this.options;
+
+    const result = await this._interactive();
     this.onInteractive(result);
-    if (cache) cached.set(interactiveFn, result);
+  }
+
+  private async _interactive() {
+    const { cache, interactiveFn, onError } = this.options;
+
+    try {
+      const result = await interactiveFn();
+      if (cache) cached.set(interactiveFn, result);
+      return result;
+    } catch (error) {
+      onError?.(error);
+    }
   }
 
   private onInteractive(result: any) {
@@ -63,12 +75,9 @@ export class UntilInteractiveCore {
       const cachedResult = cached.get(interactiveFn);
       this.onInteractive(cachedResult);
 
-      const result = await interactiveFn();
+      const result = await this._interactive();
 
-      if (result !== cachedResult) {
-        this.onInteractive(cachedResult);
-        cached.set(interactiveFn, result);
-      }
+      if (result !== cachedResult) this.onInteractive(cachedResult);
     }
   }
 }
