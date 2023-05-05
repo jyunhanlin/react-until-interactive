@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: [
     'src/index.ts',
-    'src/until-interactive.ts',
+    'src/until-interactive-core.ts',
     'src/use-until-interactive.ts',
     'src/react-until-interactive.tsx',
   ],
