@@ -57,13 +57,16 @@ function App() {
         {({ isLoading }) => (isLoading ? 'wait for UntilInteractive' : 'UntilInteractive done')}
       </UntilInteractive>
 
-      <button
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        toggle
-      </button>
+      <div>
+        <button
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          toggle
+        </button>
+        {JSON.stringify(result)}
+      </div>
     </>
   );
 }
