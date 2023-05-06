@@ -65,7 +65,10 @@ function App() {
         >
           toggle
         </button>
-        {JSON.stringify(result)}
+
+        {result.isLoading
+          ? 'wait for new content from useUntilInteractive'
+          : `useUntilInteractive done, ${result.data}`}
       </div>
     </>
   );
