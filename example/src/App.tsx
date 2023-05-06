@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { UntilInteractiveCore, useUntilInteractive, UntilInteractive } from '../../src';
 
 new UntilInteractiveCore({
@@ -20,6 +22,24 @@ function App() {
     [],
   );
 
+  const [open, setOpen] = useState(true);
+
+  const result = useUntilInteractive(
+    {
+      once: false,
+      interactiveFn: () =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            console.log('useUntilInteractive 2');
+            resolve(Math.random());
+          }, 1000);
+        }),
+    },
+    [open],
+  );
+
+  console.log(result);
+
   return (
     <>
       <div>{isLoading ? 'wait for useUntilInteractive' : 'useUntilInteractive done'}</div>
@@ -36,6 +56,14 @@ function App() {
       >
         {({ isLoading }) => (isLoading ? 'wait for UntilInteractive' : 'UntilInteractive done')}
       </UntilInteractive>
+
+      <button
+        onClick={() => {
+          setOpen(!open);
+        }}
+      >
+        toggle
+      </button>
     </>
   );
 }
