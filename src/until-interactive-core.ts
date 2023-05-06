@@ -1,10 +1,9 @@
 import type { Options } from './types';
 
-const cached = new Map();
-
 export class UntilInteractiveCore {
   private options: Options;
   private thresholdTimer: ReturnType<typeof setTimeout> | undefined;
+  private cached: any;
 
   constructor(options: Options) {
     this.options = {
@@ -55,7 +54,7 @@ export class UntilInteractiveCore {
 
     try {
       const result = await interactiveFn();
-      if (cache) cached.set(interactiveFn, result);
+      if (cache) this.cached = result;
       return result;
     } catch (error: any) {
       onError?.(error);
@@ -68,9 +67,9 @@ export class UntilInteractiveCore {
   }
 
   async updateInteractive() {
-    const { cache, interactiveFn } = this.options;
-    if (cache && cached.has(interactiveFn)) {
-      const cachedResult = cached.get(interactiveFn);
+    const { cache } = this.options;
+    if (cache && this.cached) {
+      const cachedResult = this.cached;
       this.onInteractive(cachedResult);
 
       const result = await this._interactive();
