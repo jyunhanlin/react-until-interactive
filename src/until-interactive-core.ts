@@ -37,19 +37,19 @@ export class UntilInteractiveCore {
     });
 
     if (idle) {
-      if (requestIdleCallback) requestIdleCallback(this.handleInteractive);
-      else setTimeout(this.handleInteractive);
+      if (requestIdleCallback) requestIdleCallback(this.executeInteractive);
+      else setTimeout(this.executeInteractive);
     } else {
-      this.handleInteractive();
+      this.executeInteractive();
     }
   };
 
-  private handleInteractive = async () => {
-    const result = await this._handleInteractive();
+  private executeInteractive = async () => {
+    const result = await this._executeInteractive();
     if (result !== undefined) this.onInteractive(result);
   };
 
-  private async _handleInteractive() {
+  private async _executeInteractive() {
     const { cache, interactiveFn, onError } = this.options;
 
     try {
@@ -72,11 +72,11 @@ export class UntilInteractiveCore {
       const cachedResult = this.cached;
       this.onInteractive(cachedResult);
 
-      const result = await this._handleInteractive();
+      const result = await this._executeInteractive();
 
       if (result !== cachedResult) this.onInteractive(result);
     } else {
-      this.handleInteractive();
+      this.executeInteractive();
     }
   }
 }
