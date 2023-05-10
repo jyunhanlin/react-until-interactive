@@ -11,8 +11,12 @@ export default defineConfig({
   dts: 'src/index.ts',
   target: 'es6',
   minify: true,
-  treeshake: true,
   splitting: false,
   bundle: false,
   clean: true,
+  esbuildOptions(options) {
+    options.banner = {
+      js: '"use client"',
+    };
+  },
 });
