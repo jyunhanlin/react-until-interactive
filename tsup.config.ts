@@ -14,9 +14,4 @@ export default defineConfig({
   splitting: false,
   bundle: false,
   clean: true,
-  esbuildOptions(options) {
-    options.banner = {
-      js: '"use client"',
-    };
-  },
 });

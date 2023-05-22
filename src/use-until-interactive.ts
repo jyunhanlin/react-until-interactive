@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo, useState, useLayoutEffect } from 'react';
 
 import type { HookOptions, HookResult } from './types';
