@@ -1,3 +1,10 @@
+# [1.0.0-rc.17](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.16...v1.0.0-rc.17) (2023-05-22)
+
+
+### Features
+
+* use client in react ([73b5588](https://github.com/jyunhanlin/react-until-interactive/commit/73b5588b96258f82477f0f7808927f681d15b023))
+
 # [1.0.0-rc.16](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2023-05-10)
 
 
