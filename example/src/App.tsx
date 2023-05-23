@@ -2,11 +2,13 @@ import { useState } from 'react';
 
 import { UntilInteractiveCore, useUntilInteractive, UntilInteractive } from '../../src';
 
-new UntilInteractiveCore({
-  interactiveFn: () => {
-    console.log('UntilInteractiveCore');
-  },
-});
+if (typeof window !== 'undefined') {
+  new UntilInteractiveCore({
+    interactiveFn: () => {
+      console.log('UntilInteractiveCore');
+    },
+  });
+}
 
 function App() {
   const { isLoading } = useUntilInteractive(
