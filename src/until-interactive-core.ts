@@ -13,6 +13,7 @@ export class UntilInteractiveCore {
       threshold: options.threshold,
       interactiveFn: options.interactiveFn,
       onInteractive: options.onInteractive,
+      onError: options.onError,
     };
     this.setup();
   }
