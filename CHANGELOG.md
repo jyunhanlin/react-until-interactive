@@ -1,3 +1,10 @@
+# [1.0.0-rc.18](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.17...v1.0.0-rc.18) (2023-05-24)
+
+
+### Bug Fixes
+
+* missing onError ([90ad8d9](https://github.com/jyunhanlin/react-until-interactive/commit/90ad8d9cae609005bf60764bbaf9d82507e2a435))
+
 # [1.0.0-rc.17](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.16...v1.0.0-rc.17) (2023-05-22)
 
 
