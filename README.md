@@ -6,6 +6,8 @@ Somethings like:
 
 - Third party libraries
 - Heavy assets
+- Complex computation
+- Not so important actions
 - ...
 
 ## Install
@@ -16,7 +18,21 @@ npm install jyunhanlin/react-until-interactive
 
 ## Usage
 
-**Vanilla JS**
+### Vanilla JS
+
+`new UntilInteractiveCore(options)`
+
+**Options**
+
+- options.events: the events that trigger `interactiveFn`. (default: ['mousemove', 'click', 'scroll'])
+- options.idle: use `requestIdleCallback` to trigger `interactiveFn`. (default: true)
+- options.cache: cache the return value from `interactiveFn`. (default: false)
+- options.threshold: a number to trigger `interactiveFn`. (sections, optional)
+- options.interactiveFn: interactive function (required).
+- options.onInteractive: on interactive function. take the result from `interactiveFn` as parameter. (optional)
+- options.onError: on error function. take the error as parameter. (optional)
+
+**example**
 
 ```js
 const untilInteractive = new UntilInteractiveCore({
@@ -36,7 +52,15 @@ const untilInteractive = new UntilInteractiveCore({
 });
 ```
 
-**React Hook**
+### React Hook
+
+`useUntilInteractive(options, deps)`
+
+**Options**
+
+The same with the options in Vanilla JS
+
+- options.once: just one time hook or get the updated value according to the deps
 
 ```js
 const { isLoading } = useUntilInteractive(
@@ -53,7 +77,7 @@ const { isLoading } = useUntilInteractive(
 );
 ```
 
-**React Component**
+### React Component
 
 ```jsx
 <UntilInteractive
