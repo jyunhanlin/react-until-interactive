@@ -20,21 +20,12 @@ npm install jyunhanlin/react-until-interactive
 
 ### Vanilla JS
 
-`new UntilInteractiveCore(options)`
-
-**Options**
-
-- options.events: the events that trigger `interactiveFn`. (default: ['mousemove', 'click', 'scroll'])
-- options.idle: use `requestIdleCallback` to trigger `interactiveFn`. (default: true)
-- options.cache: cache the return value from `interactiveFn`. (default: false)
-- options.threshold: a number to trigger `interactiveFn`. (sections, optional)
-- options.interactiveFn: interactive function (required).
-- options.onInteractive: on interactive function. take the result from `interactiveFn` as parameter. (optional)
-- options.onError: on error function. take the error as parameter. (optional)
-
 **example**
 
 ```js
+// import { UntilInteractiveCore } from 'react-until-interactive/until-interactive-core';
+import { UntilInteractiveCore } from 'react-until-interactive';
+
 const untilInteractive = new UntilInteractiveCore({
   events: ['mousemove', 'click', 'scroll'],
   idle: true,
@@ -52,17 +43,43 @@ const untilInteractive = new UntilInteractiveCore({
 });
 ```
 
+`new UntilInteractiveCore(options: object): void`
+
+**options**
+
+- `events`: the events that trigger `interactiveFn`.
+  - type: Array<keyof HTMLElementEventMap>;
+  - default: ['mousemove', 'click', 'scroll']
+  - optional
+- `idle`: use `requestIdleCallback` to trigger `interactiveFn`.
+  - type: boolean
+  - default: true
+  - optional
+- `cache`: cache the return value from `interactiveFn`.
+  - type: boolean
+  - default: false
+  - optional
+- `threshold`: delay a number to trigger `interactiveFn`.
+  - type: number
+  - optional
+- `interactiveFn`: interactive function.
+  - type: () => any;
+  - required
+- `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter. (optional)
+  - type: (result: any) => any;
+  - optional
+- `onError`: on error function. take the error as parameter. (optional)
+  - type: (error: Error) => any;
+  - optional
+
 ### React Hook
 
-`useUntilInteractive(options, deps)`
-
-**Options**
-
-The same with the options in Vanilla JS
-
-- options.once: just one time hook or get the updated value according to the deps
+**example**
 
 ```js
+// import { useUntilInteractive } from 'react-until-interactive/use-until-interactive';
+import { useUntilInteractive } from 'react-until-interactive';
+
 const { isLoading } = useUntilInteractive(
   {
     interactiveFn: () =>
@@ -76,6 +93,14 @@ const { isLoading } = useUntilInteractive(
   [],
 );
 ```
+
+`useUntilInteractive(options, deps)`
+
+**Options**
+
+The same with the options in Vanilla JS
+
+- options.once: just one time hook or get the updated value according to the deps
 
 ### React Component
 
