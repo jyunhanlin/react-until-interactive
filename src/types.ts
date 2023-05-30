@@ -10,9 +10,7 @@ export interface Options {
   onError?: (error: Error) => any;
 }
 
-export interface HookOptions extends Options {
-  once?: boolean;
-}
+export type HookOptions = Options;
 
 export interface ComponentOptions {
   untilInteractiveOptions: HookOptions;

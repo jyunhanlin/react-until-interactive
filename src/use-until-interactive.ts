@@ -6,7 +6,7 @@ import type { HookOptions, HookResult } from './types';
 import { UntilInteractiveCore } from './until-interactive-core';
 
 export const useUntilInteractive = (options: HookOptions, deps: React.DependencyList): HookResult => {
-  const { once = true, onError } = options;
+  const { onInteractive, onError } = options;
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<any>(null);
@@ -16,6 +16,7 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
       new UntilInteractiveCore({
         ...options,
         onInteractive: (result) => {
+          onInteractive?.(result);
           setData(result);
           setIsLoading(false);
         },
@@ -28,7 +29,7 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
   );
 
   useLayoutEffect(() => {
-    if (!once && !isLoading) {
+    if (deps.length && !isLoading) {
       setIsLoading(true);
       setIsError(false);
       untilInteractive.updateInteractive();

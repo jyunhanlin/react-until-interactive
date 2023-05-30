@@ -28,7 +28,6 @@ function App() {
 
   const result = useUntilInteractive(
     {
-      once: false,
       interactiveFn: () =>
         new Promise((resolve) => {
           setTimeout(() => {
