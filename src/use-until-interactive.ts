@@ -34,7 +34,7 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
       setIsError(false);
       untilInteractive.updateInteractive();
     }
-  }, deps);
+  }, [...deps, isLoading]);
 
   return { isLoading, isError, data };
 };
