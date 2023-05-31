@@ -29,7 +29,7 @@ export const useUntilInteractive = (options: HookOptions, deps: React.Dependency
   );
 
   useLayoutEffect(() => {
-    if (deps.length && !isLoading) {
+    if ((!deps || deps?.length) && !isLoading) {
       setIsLoading(true);
       setIsError(false);
       untilInteractive.updateInteractive();
