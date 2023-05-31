@@ -48,27 +48,24 @@ const untilInteractive = new UntilInteractiveCore({
 **options**
 
 - `events`: the events that trigger `interactiveFn`.
-  - type: Array<keyof HTMLElementEventMap>;
+  - type: array\<keyof HTMLElementEventMap\>
   - default: ['mousemove', 'click', 'scroll']
-  - optional
 - `idle`: use `requestIdleCallback` to trigger `interactiveFn`.
   - type: boolean
   - default: true
-  - optional
 - `cache`: cache the return value from `interactiveFn`.
   - type: boolean
   - default: false
-  - optional
 - `threshold`: delay a number to trigger `interactiveFn`.
   - type: number
   - optional
 - `interactiveFn`: interactive function.
   - type: () => any;
   - required
-- `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter. (optional)
+- `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter.
   - type: (result: any) => any;
   - optional
-- `onError`: on error function. take the error as parameter. (optional)
+- `onError`: on error function. take the error as parameter.
   - type: (error: Error) => any;
   - optional
 
@@ -106,6 +103,8 @@ The same options with Vanilla JS
 - optional
 
 ### React Component
+
+**example**
 
 ```jsx
 // import { UntilInteractive } from 'react-until-interactive/react-until-interactive';
