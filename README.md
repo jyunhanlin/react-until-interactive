@@ -98,7 +98,7 @@ const { isLoading } = useUntilInteractive(
 
 **options**
 
-The same with the options in Vanilla JS
+The same options with Vanilla JS
 
 **deps**
 
