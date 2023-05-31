@@ -102,7 +102,8 @@ The same options with Vanilla JS
 - type: React.DependencyList
 - optional
 
-The **return** value from `useUntilInteractive` hook
+The **return** object
+
 - isLoading
   - type: boolean
 - isError
@@ -132,3 +133,11 @@ import { UntilInteractive } from 'react-until-interactive';
   {({ isLoading }) => (isLoading ? 'wait for UntilInteractive' : 'UntilInteractive done')}
 </UntilInteractive>;
 ```
+
+**props**
+
+- untilInteractiveOptions
+  - The same options with Vanilla JS
+- children
+  - type: React.ReactNode | ((args: { isLoading: boolean; isError: boolean }) => React.ReactNode)
+  - optional
