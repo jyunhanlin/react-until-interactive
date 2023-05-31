@@ -47,6 +47,9 @@ const untilInteractive = new UntilInteractiveCore({
 
 **options**
 
+- `interactiveFn`: interactive function.
+  - type: () => any;
+  - required
 - `events`: the events that trigger `interactiveFn`.
   - type: array\<keyof HTMLElementEventMap\>
   - default: ['mousemove', 'click', 'scroll']
@@ -59,9 +62,6 @@ const untilInteractive = new UntilInteractiveCore({
 - `threshold`: delay a number to trigger `interactiveFn`.
   - type: number
   - optional
-- `interactiveFn`: interactive function.
-  - type: () => any;
-  - required
 - `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter.
   - type: (result: any) => any;
   - optional
