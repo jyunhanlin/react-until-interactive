@@ -96,15 +96,21 @@ const { isLoading } = useUntilInteractive(
 
 `useUntilInteractive(options, deps)`
 
-**Options**
+**options**
 
 The same with the options in Vanilla JS
 
-- options.once: just one time hook or get the updated value according to the deps
+**deps**
+
+- type: React.DependencyList
+- optional
 
 ### React Component
 
 ```jsx
+// import { UntilInteractive } from 'react-until-interactive/react-until-interactive';
+import { UntilInteractive } from 'react-until-interactive';
+
 <UntilInteractive
   untilInteractiveOptions={{
     interactiveFn: () =>
@@ -117,5 +123,5 @@ The same with the options in Vanilla JS
   }}
 >
   {({ isLoading }) => (isLoading ? 'wait for UntilInteractive' : 'UntilInteractive done')}
-</UntilInteractive>
+</UntilInteractive>;
 ```
