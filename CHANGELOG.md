@@ -1,3 +1,10 @@
+# [1.0.0-rc.21](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.20...v1.0.0-rc.21) (2023-05-31)
+
+
+### Bug Fixes
+
+* fix type ([27c933f](https://github.com/jyunhanlin/react-until-interactive/commit/27c933f83308b968f4a7eaf52a51e8541483431c))
+
 # [1.0.0-rc.20](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.19...v1.0.0-rc.20) (2023-05-31)
 
 
