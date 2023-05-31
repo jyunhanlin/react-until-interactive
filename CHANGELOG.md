@@ -1,3 +1,10 @@
+# [1.0.0-rc.20](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.19...v1.0.0-rc.20) (2023-05-31)
+
+
+### Bug Fixes
+
+* update deps of hook ([88e4992](https://github.com/jyunhanlin/react-until-interactive/commit/88e49925d99da79aa4c582e473b8ccafebf47695))
+
 # [1.0.0-rc.19](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0-rc.18...v1.0.0-rc.19) (2023-05-31)
 
 
