@@ -77,7 +77,7 @@ The `UntilInteractiveCore(options: object)` class
 // import { useUntilInteractive } from 'react-until-interactive/use-until-interactive';
 import { useUntilInteractive } from 'react-until-interactive';
 
-const { isLoading } = useUntilInteractive(
+const { isLoading, isError, data } = useUntilInteractive(
   {
     interactiveFn: () =>
       new Promise((resolve) => {
@@ -102,7 +102,7 @@ The same options with Vanilla JS
 - type: React.DependencyList
 - optional
 
-**return**
+The **return** value from `useUntilInteractive` hook
 - isLoading
   - type: boolean
 - isError
