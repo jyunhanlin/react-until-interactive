@@ -43,7 +43,7 @@ const untilInteractive = new UntilInteractiveCore({
 });
 ```
 
-`new UntilInteractiveCore(options: object): void`
+The `UntilInteractiveCore(options: object)` class
 
 **options**
 
@@ -63,10 +63,10 @@ const untilInteractive = new UntilInteractiveCore({
   - type: number
   - optional
 - `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter.
-  - type: (result: any) => any;
+  - type: (result: any) => Promise\<any\>;
   - optional
 - `onError`: on error function. take the error as parameter.
-  - type: (error: Error) => any;
+  - type: (error: Error) => void;
   - optional
 
 ### React Hook
@@ -91,7 +91,7 @@ const { isLoading } = useUntilInteractive(
 );
 ```
 
-`useUntilInteractive(options, deps)`
+The `useUntilInteractive(options, deps)` hook
 
 **options**
 
@@ -101,6 +101,14 @@ The same options with Vanilla JS
 
 - type: React.DependencyList
 - optional
+
+**return**
+- isLoading
+  - type: boolean
+- isError
+  - type: boolean
+- data: the return value from `interactiveFn`
+  - type: any
 
 ### React Component
 
