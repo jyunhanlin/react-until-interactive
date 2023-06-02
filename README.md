@@ -45,29 +45,30 @@ const untilInteractive = new UntilInteractiveCore({
 
 The `UntilInteractiveCore(options: object)` class
 
-**options**
+**Parameters**
 
-- `interactiveFn`: interactive function.
-  - type: () => any;
-  - required
-- `events`: the events that trigger `interactiveFn`.
-  - type: array\<keyof HTMLElementEventMap\>
-  - default: ['mousemove', 'click', 'scroll']
-- `idle`: use `requestIdleCallback` to trigger `interactiveFn`.
-  - type: boolean
-  - default: true
-- `cache`: cache the return value from `interactiveFn`.
-  - type: boolean
-  - default: false
-- `threshold`: delay a number to trigger `interactiveFn`.
-  - type: number
-  - optional
-- `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter.
-  - type: (result: any) => Promise\<any\>;
-  - optional
-- `onError`: on error function. take the error as parameter.
-  - type: (error: Error) => void;
-  - optional
+- options
+  - `interactiveFn`: interactive function.
+    - type: () => any;
+    - required
+  - `events`: the events that trigger `interactiveFn`.
+    - type: array\<keyof HTMLElementEventMap\>
+    - default: ['mousemove', 'click', 'scroll']
+  - `idle`: use `requestIdleCallback` to trigger `interactiveFn`.
+    - type: boolean
+    - default: true
+  - `cache`: cache the return value from `interactiveFn`.
+    - type: boolean
+    - default: false
+  - `threshold`: delay a number to trigger `interactiveFn`.
+    - type: number
+    - optional
+  - `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter.
+    - type: (result: any) => Promise\<any\>;
+    - optional
+  - `onError`: on error function. take the error as parameter.
+    - type: (error: Error) => void;
+    - optional
 
 ### React Hook
 
@@ -93,16 +94,19 @@ const { isLoading, isError, data } = useUntilInteractive(
 
 The `useUntilInteractive(options, deps)` hook
 
-**options**
+**Parameters**
 
-The same options with Vanilla JS
+- options
 
-**deps**
+  The same options with Vanilla JS
 
-- type: React.DependencyList
-- optional
+- deps
+  - type: React.DependencyList
+  - optional
 
-The **return** object
+**Returns**
+
+The hook expose the object
 
 - isLoading
   - type: boolean
