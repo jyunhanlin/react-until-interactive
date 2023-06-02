@@ -14,9 +14,7 @@ export type HookOptions = Options;
 
 export interface ComponentOptions {
   untilInteractiveOptions: HookOptions;
-  children?:
-    | React.ReactNode
-    | ((args: { isLoading: boolean; isError: boolean }) => React.ReactNode);
+  children?: React.ReactNode | ((args: { isLoading: boolean; isError: boolean }) => React.ReactNode);
   // All other props
   [x: string]: any;
 }
