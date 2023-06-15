@@ -35,10 +35,10 @@ const untilInteractive = new UntilInteractiveCore({
     // Do something until user interactive
   },
   onInteractive: (result) => {
-    // Do something for the result
+    // Do something for the result from the interactiveFn
   },
   onError: (error) => {
-    // Do something for the error
+    // Do something for the error from the interactiveFn
   },
 });
 ```
@@ -66,7 +66,7 @@ The `UntilInteractiveCore(options: object)` class
   - `onInteractive`: on interactive function. take the result from `interactiveFn` as parameter.
     - type: (result: any) => Promise\<any\>;
     - optional
-  - `onError`: on error function. take the error as parameter.
+  - `onError`: on error function. take the error from `interactiveFn` as parameter.
     - type: (error: Error) => void;
     - optional
 
