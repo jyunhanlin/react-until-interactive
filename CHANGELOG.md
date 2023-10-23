@@ -1,3 +1,10 @@
+## [1.0.1-rc.1](https://github.com/jyunhanlin/react-until-interactive/compare/v1.0.0...v1.0.1-rc.1) (2023-10-23)
+
+
+### Bug Fixes
+
+* udpate type ([5c16a13](https://github.com/jyunhanlin/react-until-interactive/commit/5c16a1308583f5ba3b69c7d0467c274043db9ffc))
+
 # 1.0.0 (2023-05-31)
 
 
