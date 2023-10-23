@@ -5,7 +5,11 @@ import React from 'react';
 import type { ComponentOptions } from './types';
 import { useUntilInteractive } from './use-until-interactive';
 
-export const UntilInteractive = ({ untilInteractiveOptions, children, otherProps }: ComponentOptions) => {
+export const UntilInteractive = ({
+  untilInteractiveOptions,
+  children,
+  otherProps,
+}: ComponentOptions): React.ReactNode => {
   const { isLoading, isError } = useUntilInteractive(untilInteractiveOptions, []);
 
   if (children && React.isValidElement(children)) {
@@ -15,10 +19,10 @@ export const UntilInteractive = ({ untilInteractiveOptions, children, otherProps
   }
 
   if (children && typeof children === 'function') {
-    return <>{children({ isLoading, isError })}</>;
+    return children({ isLoading, isError });
   }
 
-  if (children) return isLoading || isError ? null : <>{children}</>;
+  if (children) return isLoading || isError ? null : children;
 
   return null;
 };
